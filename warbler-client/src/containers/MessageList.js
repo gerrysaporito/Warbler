@@ -6,6 +6,7 @@ import MessageItem from '../components/MessageItem';
 
 class MessageList extends Component {
     componentDidMount() {
+        console.log(this.props.fetchMessages())
         this.props.fetchMessages();
     }
 
