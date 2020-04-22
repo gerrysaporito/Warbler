@@ -7,6 +7,7 @@ const express = require('express');
 const errorHandler = require('./handlers/error');
 const { loginRequired, ensureCorrectUser} = require('./middleware/auth');
 const PORT = process.env.PORT || 8081;
+const db = require('./models');
 
 const AUTH_ROUTES = require('./routes/auth');
 const MESSAGES_ROUTES = require('./routes/messages');
@@ -18,7 +19,7 @@ app.use(bodyParser.json());
 app.use('/api/auth', AUTH_ROUTES);
 app.use('/api/users/:id/messages', loginRequired, ensureCorrectUser, MESSAGES_ROUTES);
 
-app.get('/api/messages', loginRequired, async function(res, req, next) {
+app.get('/api/messages', loginRequired, async function(req, res, next) {
     try {
         let messages = await db.Message.find()
             .sort({createdAt: 'desc'})
@@ -26,6 +27,7 @@ app.get('/api/messages', loginRequired, async function(res, req, next) {
                 username: true,
                 profileImageUrl: true
             });
+        return res.status(200).json(messages);
     } catch(err) {
         return next(err);
     }

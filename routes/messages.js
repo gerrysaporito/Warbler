@@ -6,7 +6,7 @@ router.route('/')
     .post(createMessage);
 
 router.route('/:message_id')
-    .get(getMessage)
-    .delete(deleteMessage);
+    .delete(deleteMessage)
+    .get(getMessage);
 
 module.exports = router;
