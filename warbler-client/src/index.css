@@ -59,6 +59,6 @@ ul.nav.navbar-nav li {
   padding: 7px 20px 12px
 }
 
-#messages:not(no-hover) .list-group-item:hover {
+#messages:not(.no-hover) .list-group-item:hover {
   background-color: #E6ECF0;
 }

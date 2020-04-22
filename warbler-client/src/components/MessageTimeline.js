@@ -4,7 +4,7 @@ import UserAside from './UserAside.js';
 
 const MessageTimeline = props => {
     return(
-        <div>
+        <div className='row'>
             <UserAside 
                 profileImageUrl={props.profileImageUrl}
                 username={props.usernames}

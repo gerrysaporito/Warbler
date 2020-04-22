@@ -6,7 +6,10 @@ const message = (state = [], action) => {
             return [...action.messages]
         }
         case REMOVE_MESSAGE: {
+            console.log("REMOVE_MESSAGE")
+            console.log(action)
             return state
+            // return state.filter(messages => messages._id !== action.id);
         }
         default: {
             return state;

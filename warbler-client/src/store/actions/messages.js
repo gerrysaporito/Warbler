@@ -1,11 +1,24 @@
 import { apiCall } from '../../services/api';
-import { ADD_ERROR, LOAD_MESSAGES, REMOVE_MESSAGE } from '../actionTypes';
+import { LOAD_MESSAGES, REMOVE_MESSAGE } from '../actionTypes';
 import { addError } from './errors';
 
 export const loadMessages = messages => ({
     type: LOAD_MESSAGES,
     messages
 });
+
+export const removeMessage = id => ({
+    type: REMOVE_MESSAGE,
+    id
+});
+
+export const remove = (user_id, message_id) => {
+    return dispatch => {
+        return apiCall('delete', `/api/users/${user_id}/messages/${message_id}`)
+        .then(() => dispatch(removeMessage(message_id)))
+        .catch(err => addError(err.message));
+    };
+};
 
 export const fetchMessages = () => {
     return dispatch => {
@@ -21,5 +34,4 @@ export const postNewMessage = text => (dispatch, getState) => {
     return apiCall('post', `/api/users/${id}/messages`, {text})
     .then(res => {})
     .catch(err => dispatch(addError(err.message)));
-}
-
+};

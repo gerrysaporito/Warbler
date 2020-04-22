@@ -10,18 +10,17 @@ const MessageSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User', // Must be the same as the string defined in ./user export
-    },
-   
+    },  
 }, {timestamp: true});
 
 MessageSchema.pre('remove', async function(next) {
     try {
-        let user = User.findById(this.user);
+        let user = await User.findById(this.user);
         user.messages.remove(this.id);
         await user.save();
         return next();
     } catch(err) {
-        next(err);
+        next(err.message);
     }
 }); 
 
