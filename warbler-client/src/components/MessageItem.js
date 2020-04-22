@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import DefaultProfileImage from '../images/default-profile-image.jpg';
@@ -16,7 +16,7 @@ const MessageItem = ({date, profileImageUrl, text, username, removeMessage, isCo
                 </span>
                 <p>{text}</p>
                 {isCorrectUser && (
-                    <a className='btn btn-danger' onClick={removeMessage} >Delete</a>
+                    <button className='btn btn-danger' onClick={removeMessage} href='#'>Delete</button>
                 )}
             </div>
         </li>
