@@ -7,15 +7,15 @@ export const loadMessages = messages => ({
     messages
 });
 
-export const removeMessage = id => ({
+export const remove = id => ({
     type: REMOVE_MESSAGE,
     id
 });
 
-export const remove = (user_id, message_id) => {
+export const removeMessage = (user_id, message_id) => {
     return dispatch => {
         return apiCall('delete', `/api/users/${user_id}/messages/${message_id}`)
-        .then(() => dispatch(removeMessage(message_id)))
+        .then(() => dispatch(remove(message_id)))
         .catch(err => addError(err.message));
     };
 };

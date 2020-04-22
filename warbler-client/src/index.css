@@ -1,5 +1,5 @@
 body {
-  background-color: #ECECF0;
+  background-color: #e6ecf0;
 }
 
 .navbar {
@@ -14,23 +14,23 @@ body {
 .navbar a:hover {
   color: white;
   text-decoration: underline;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .navbar-brand > img {
   display: inline-block;
   width: 20px;
-  border-radius: 20px;
-  margin-bottom: 5px;
-  margin-right: 2px;
+  margin-bottom: 2px;
+  margin-right: 5px;
+  border-radius: 2px;
 }
 
 ul.nav.navbar-nav li {
   margin: 0 0.5rem;
 }
 
-.onboarding > .navbar{
-  background-image: url('./images/nav-bg.png');
+.onboarding > .navbar {
+  background-image: url("./images/nav-bg.png");
   background-size: 100% 100%;
 }
 
@@ -45,20 +45,37 @@ ul.nav.navbar-nav li {
   align-items: center;
   justify-content: center;
   z-index: -1;
-  background-image: url('./images/signed-out-home.jpg');
+  background-image: url("./images/signed-out-home.jpg");
   text-align: center;
+  padding: 1rem;
   background-position: center center;
   background-size: cover;
-  color: white;
+  color: #fff;
   text-shadow: 0 0 8px #66757F;
 }
 
 #messages .list-group-item {
   display: flex;
   align-items: flex-start;
-  padding: 7px 20px 12px
+  padding: 7px 20px 12px;
 }
 
 #messages:not(.no-hover) .list-group-item:hover {
   background-color: #E6ECF0;
+}
+
+.timeline-image {
+  border-radius: 50px;
+  height: 48px;
+  width: 48px;
+  margin: 2px 30px 10px 10px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+a.btn.btn-danger,
+a.btn.btn-danger:hover {
+  color: white;
 }
